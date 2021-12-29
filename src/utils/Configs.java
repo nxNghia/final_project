@@ -7,12 +7,12 @@ public class Configs {
 
     // api constants
     public static final String PROCESS_TRANSACTION_URL = "https://ecopark-system-api.herokuapp.com/api/card/processTransaction";
-    public static final String appCode = "A1SRyiBqj/E=";
+    public static final String appCode = "AkXXrVUanBU=";
 
     // database Configs
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/test_schema";
-    public static final String DB_USERNAME = "nah";
-    public static final String DB_PASSWORD = "xnauiagnenhugny";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/capstone";
+    public static final String DB_USERNAME = "root";
+    public static final String DB_PASSWORD = "langle2k";
 
     // static resource
     public static final String RESULT_SCREEN_PATH = "/views/result.fxml";
@@ -33,7 +33,13 @@ public class Configs {
     public static final String BIKE_INFO = "/views/bike_info.fxml";
     public static final String RETURN_DOCK_ITEM_PATH = "/views/return_dock_item.fxml";
     public static final String SELECT_DOCK_TO_RETURN_BIKE_PATH = "/views/select_dock_to_return_bike.fxml";
-
+    
+    //card information
+    public static final String CARD_CODE = "vn_group8_2021";
+    public static final String OWNER = "Group 8";
+    public static final String CVV = "714";
+    public static final String DATE_EXPIRED = "1125";
+    
 
     public static final Map<String, String> errorCodes = new HashMap<String, String>() {{
         put("00", "Transaction successfully");
