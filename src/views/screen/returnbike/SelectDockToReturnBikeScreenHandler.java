@@ -134,6 +134,7 @@ public class SelectDockToReturnBikeScreenHandler extends BaseScreenHandler imple
     @FXML
     public void backToViewRentingBike() throws IOException, SQLException {
         RentingBikeHandler viewRentingBikeHandler = new RentingBikeHandler(stage, Configs.RENT_BIKE_INFO_PATH, order);
+        System.out.println("Select Dock To Return Bike Screen Handler");
         viewRentingBikeHandler.setBController(new ViewBikeController());
         viewRentingBikeHandler.requestToViewRentingBike(new HomeScreenHandler(stage, Configs.HOME_SCREEN_PATH));
     }

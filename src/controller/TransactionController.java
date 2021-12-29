@@ -184,6 +184,7 @@ public class TransactionController extends BaseController {
         TransactionErrorScreenHandler tes = new TransactionErrorScreenHandler(stage, Configs.TRANSACTION_ERROR_SCREEN_PATH, errorMessage);
         tes.setPreviousScreen(prev);
 
+        System.out.println("Transaction Controller");
         tes.setBController(new ReturnBikeController());
         tes.setHomeScreenHandler(homeScreenHandler);
         tes.setScreenTitle("Transaction Error Screen");

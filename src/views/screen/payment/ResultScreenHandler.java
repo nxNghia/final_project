@@ -55,6 +55,7 @@ public class ResultScreenHandler extends BaseScreenHandler implements Initializa
      */
     public ResultScreenHandler(Stage stage, String screenPath, BaseController bController, TransactionInfo trans) throws IOException {
         super(stage, screenPath);
+        System.out.println("Result Screen Handler");
         setBController(bController);
         setTransactionInfo(trans);
     }

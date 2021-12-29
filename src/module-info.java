@@ -10,4 +10,6 @@ module ISD.VN {
 	opens views.screen;
 	opens views.screen.home;
 	opens views.screen.station;
+	opens views.screen.bike;
+	opens views.screen.rentbike;
 }

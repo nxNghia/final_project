@@ -125,6 +125,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 try {
                     selectDock = new SelectDockToReturnBikeScreenHandler(this.stage, Configs.SELECT_DOCK_TO_RETURN_BIKE_PATH, order);
                     selectDock.setHomeScreenHandler(this);
+                    System.out.println("Home Screen");
                     selectDock.setBController(new SelectDockToReturnBikeController());
                     selectDock.requestToSelectDock(this);
                 } catch (Exception e1) {

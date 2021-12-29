@@ -101,6 +101,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
      */
     public ReturnBikeHandler(Stage stage, String screenPath, BaseController bController, Station station, Order order) throws IOException {
         super(stage, screenPath);
+        System.out.println("Return Bike Handler");
         setBController(bController);
         this.order = order;
         this.newStation = station;

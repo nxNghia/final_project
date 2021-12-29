@@ -63,6 +63,7 @@ public class ViewBikeController extends BaseController {
     public Bike setBike(int id, String type) throws ViewBikeException {
         try {
             if (type.equals("Standard electric bike")) {
+            	System.out.print(type);
                 return new StandardElectricBike().getBikeById(id);
             } else if (type.equals("Standard bike")) {
                 return new StandardBike().getBikeById(id);
