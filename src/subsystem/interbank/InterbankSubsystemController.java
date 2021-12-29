@@ -24,7 +24,7 @@ import utils.Utils;
  */
 public class InterbankSubsystemController {
 
-	private static final String SECRET_KEY = "BtNH8J4Tl/I=";
+	private static final String SECRET_KEY = "BWV6fhwdozg=";
 	
 	// pay command can be pay or refund
 	private String command = "pay";
