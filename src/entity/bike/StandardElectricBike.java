@@ -55,7 +55,7 @@ public class StandardElectricBike extends Bike {
     public Bike getBikeById(int id) throws SQLException {
         try {
             String qId = "\"" + id + "\"";
-            String sql = "SELECT * FROM Bike B  natural join BikeDetail join  Station on B.stationID=Station.id join ElectricBike SEB on B.id=SEB.id where B.id= " + qId + ";";
+            String sql = "SELECT * FROM Bike B  natural  join  Station on B.stationID=Station.id join ElectricBike SEB on B.id=SEB.id where B.id= " + qId + ";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 

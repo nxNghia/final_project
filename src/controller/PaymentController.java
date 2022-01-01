@@ -201,7 +201,7 @@ public class PaymentController extends TransactionController {
      * @throws Exception
      */
     public void processPayRequest(String cardNumber, String holderName, String securityCode, String expirationDate, Invoice invoice, Stage stage, HomeScreenHandler homeScreenHandler, BaseScreenHandler prev) throws Exception {
-
+    	System.out.println(cardNumber+">"+holderName+">"+securityCode);
         validateCard(cardNumber, holderName, securityCode, expirationDate);
         Card card = createCard(cardNumber, holderName, securityCode, expirationDate);
         TransactionInfo transactionResult = submitToPay(invoice, card);

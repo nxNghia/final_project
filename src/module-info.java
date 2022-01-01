@@ -5,6 +5,7 @@ module ISD.VN {
 	requires java.sql;
 	requires javafx.graphics;
 	requires javafx.base;
+	requires java.base;
 	
 	opens application;
 	opens views.screen;
@@ -12,4 +13,5 @@ module ISD.VN {
 	opens views.screen.station;
 	opens views.screen.bike;
 	opens views.screen.rentbike;
+	opens views.screen.payment;
 }
