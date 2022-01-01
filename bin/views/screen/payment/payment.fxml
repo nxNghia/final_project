@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" prefHeight="70.0" prefWidth="1366.0">
             <children>
@@ -87,7 +87,7 @@
                                 <Font name="Arial Bold" size="24.0" />
                             </font>
                         </Text>
-                        <TextField fx:id="cardCode" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" text="121319_group8_2020" GridPane.rowIndex="1">
+                        <TextField fx:id="cardCode" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" GridPane.rowIndex="1">
                             <font>
                                 <Font name="Arial" size="24.0" />
                             </font>
@@ -97,7 +97,7 @@
                                 <Font name="Arial Bold" size="24.0" />
                             </font>
                         </Text>
-                        <TextField fx:id="owner" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" text="Group 8" GridPane.rowIndex="3">
+                        <TextField fx:id="owner" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Arial" size="24.0" />
                             </font>
@@ -107,7 +107,7 @@
                                 <Font name="Arial Bold" size="24.0" />
                             </font>
                         </Text>
-                        <TextField fx:id="dateExpired" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" text="1125" GridPane.rowIndex="5">
+                        <TextField fx:id="dateExpired" prefHeight="43.0" prefWidth="306.0" style="-fx-background-color: #f8edcd;" GridPane.rowIndex="5">
                             <font>
                                 <Font name="Arial" size="24.0" />
                             </font>
@@ -117,7 +117,7 @@
                                 <Font name="Arial Bold" size="24.0" />
                             </font>
                         </Text>
-                        <PasswordField fx:id="cvvCode" prefHeight="80.0" prefWidth="336.0" style="-fx-background-color: #f8edcd #f8edcd;" text="128" GridPane.rowIndex="7" />
+                        <PasswordField fx:id="cvvCode" prefHeight="80.0" prefWidth="336.0" style="-fx-background-color: #f8edcd #f8edcd;" GridPane.rowIndex="7" />
                     </children>
                 </GridPane>
             <Text fx:id="errorMessage" fill="#d02424" layoutX="232.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="372.0">

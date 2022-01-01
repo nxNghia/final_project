@@ -187,7 +187,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
      * set the card info display in the current screen
      */
     private void setCardInfo() {
-        this.card = getBController().createCard("121319_group8_2020", "Group 8", "128", "1125");
+        this.card = getBController().createCard(Configs.CARD_CODE, Configs.OWNER, Configs.CVV, Configs.DATE_EXPIRED);
         owner.setText(card.getOwner());
         cardCode.setText(card.getCardCode());
         dateExpired.setText(card.getDateExpired());

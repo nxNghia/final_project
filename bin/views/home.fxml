@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1326.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1277.0" style="-fx-border-color: #111111;">
             <children>
@@ -257,7 +257,7 @@
                 <Font name="Arial" size="18.0" />
             </font>
         </Label>
-        <Button fx:id="rentBikeButton" layoutX="1151.0" layoutY="28.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #eb4d55;" text="Rent Bike" textFill="WHITE">
+        <Button fx:id="rentBikeButton" layoutX="1095.0" layoutY="28.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #eb4d55;" text="Rent Bike" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="14.0" />
             </font>
@@ -289,7 +289,7 @@
                 </HBox>
             </content>
         </ScrollPane>
-        <Button fx:id="viewRent" layoutX="982.0" layoutY="28.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #eb4d55 #eb4d55 #eb4d55 #eb4d55;" text="View renting Bike" textFill="WHITE">
+        <Button fx:id="viewRent" layoutX="923.0" layoutY="28.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #eb4d55 #eb4d55 #eb4d55 #eb4d55;" text="View renting Bike" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="14.0" />
             </font>
