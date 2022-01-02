@@ -28,9 +28,9 @@ public class ReturnBikeController extends TransactionController {
 	 * Get card information for DB
 	 * @return Card
 	 */
-    public Card getCard() {
-        return Card.getCardFromDB();
-    }
+//    public Card getCard() {
+//        return Card.getCardFromDB();
+//    }
 
 
     /**

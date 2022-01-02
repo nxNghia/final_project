@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import utils.Configs;
 import utils.Utils;
 import views.screen.FXMLScreenHandler;
-import views.screen.popup.PopupHomeScreen;
 import views.screen.station.StationScreenHandler;
 
 /**
@@ -22,9 +21,6 @@ import views.screen.station.StationScreenHandler;
  * @version 1.0
  */
 public class StationHandler extends FXMLScreenHandler {
-
-    @FXML
-    protected ImageView stationImage;
 
     @FXML
     protected Label stationName;
@@ -40,9 +36,6 @@ public class StationHandler extends FXMLScreenHandler {
 
     @FXML
     protected Button view;
-
-    @FXML
-    protected Button distance;
 
     private Station station;
     private HomeScreenHandler home;
@@ -107,15 +100,6 @@ public class StationHandler extends FXMLScreenHandler {
                 e1.printStackTrace();
             }
         });
-        distance.setOnMouseClicked(event -> {
-            PopupHomeScreen popupHomeScreen;
-            try {
-                System.out.println("Distance clicked");
-                PopupHomeScreen.showPopup();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
     }
     
     /**
@@ -123,13 +107,10 @@ public class StationHandler extends FXMLScreenHandler {
      * @throws SQLException
      */
     private void setStationInfo() throws SQLException {
-        // set the cover image of station
         stationName.setText(station.getName());
         stationAddress.setText("Address: " + station.getAddress());
         stationAvailableBike.setText("Available bikes: " + (station.getNumAvailableBike()));
         stationEmptyDock.setText("Empty docks: " + (station.getNumEmptyDockPoint()));
-
-        setImage(stationImage, "assets/images/dock-img.png");
     }
 
 }

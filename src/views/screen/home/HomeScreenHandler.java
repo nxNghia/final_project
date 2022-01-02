@@ -6,7 +6,7 @@ import controller.ViewBikeController;
 import controller.SelectDockToReturnBikeController;
 import entity.order.Order;
 import entity.station.Station;
-import javafx.event.ActionEvent;
+//import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -51,19 +51,10 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     private ImageView logo;
 
     @FXML
-    private ImageView home;
-
-    @FXML
-    private ImageView search;
-
-    @FXML
     private VBox vboxDock1;
 
     @FXML
     private VBox vboxDock2;
-
-    @FXML
-    private TextField searchInput;
 
     @FXML
     private Button rentBikeButton;
@@ -71,23 +62,10 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     @FXML
     private Button viewRent;
 
-    private List homeItems;
+    private List<StationHandler> homeItems;
     @FXML
     private Button viewRentBike;
-    private String searchString = searchInput.getText();
     private Order order;
-
-    @FXML
-    /**
-     * search dock
-     * @param ae
-     * @throws IOException
-     * @throws SQLException
-     */
-    public void onEnter(ActionEvent ae) throws IOException, SQLException {
-        searchString = searchInput.getText();
-        initHome(searchString, this.order);
-    }
 
     /**
      * constructor, when the user is not using any bike
@@ -99,8 +77,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException, SQLException {
         super(stage, screenPath);
         this.order = null;
-        this.searchString = null;
-        initHome(this.searchString, this.order);
+        initHome(this.order);
     }
     
     /**
@@ -114,8 +91,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     public HomeScreenHandler(Stage stage, String screenPath, Order order) throws IOException, SQLException {
         super(stage, screenPath);
         this.order = order;
-        this.searchString = null;
-        initHome(this.searchString, order);
+        initHome(order);
 
         if (order != null) {
             rentBikeButton.setText("Return Bike");
@@ -125,7 +101,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 try {
                     selectDock = new SelectDockToReturnBikeScreenHandler(this.stage, Configs.SELECT_DOCK_TO_RETURN_BIKE_PATH, order);
                     selectDock.setHomeScreenHandler(this);
-                    System.out.println("Home Screen");
                     selectDock.setBController(new SelectDockToReturnBikeController());
                     selectDock.requestToSelectDock(this);
                 } catch (Exception e1) {
@@ -204,32 +179,23 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
      * @throws SQLException
      * @throws IOException
      */
-    public void initHome(String searchString, Order order) throws SQLException, IOException {
+    public void initHome(Order order) throws SQLException, IOException {
         setBController(new HomeController());
-        List medium = getBController().getAllStations();
+        List<Station> medium = getBController().getAllStations();
         this.homeItems = new ArrayList<>();
         if (order != null) {
             for (Object object : medium) {
                 Station station = (Station) object;
                 StationHandler dock = new StationHandler(Configs.STATION_HOME_PATH, station, this, order);
-                if (searchString == null) {
-                    this.homeItems.add(dock);
-                } else if (station.getName().toLowerCase().contains(searchString.toLowerCase()))
-                    this.homeItems.add(dock);
+                this.homeItems.add(dock);
             }
         } else {
             for (Object object : medium) {
                 Station station = (Station) object;
                 StationHandler dock = new StationHandler(Configs.STATION_HOME_PATH, station, this);
-                if (searchString == null) {
-                    this.homeItems.add(dock);
-                } else if (station.getName().toLowerCase().contains(searchString.toLowerCase()))
-                    this.homeItems.add(dock);
+                this.homeItems.add(dock);
             }
         }
-        home.setOnMouseClicked(e -> {
-            addStationHome(this.homeItems);
-        });
         addStationHome(this.homeItems);
     }
 
@@ -256,8 +222,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
      * add station to home
      * @param items
      */
-    public void addStationHome(List items) {
-        ArrayList homeItems = (ArrayList) ((ArrayList) items).clone();
+    public void addStationHome(List<StationHandler> items) {
+        ArrayList<StationHandler> homeItems = (ArrayList) ((ArrayList) items).clone();
         hboxHome.getChildren().forEach(node -> {
             VBox vBox = (VBox) node;
             vBox.getChildren().clear();
@@ -265,7 +231,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         while (!homeItems.isEmpty()) {
             int size = homeItems.size();
             hboxHome.getChildren().forEach(node -> {
-                int vid = hboxHome.getChildren().indexOf(node);
+//                int vid = hboxHome.getChildren().indexOf(node);
                 VBox vBox = (VBox) node;
                 vBox.setSpacing(20);
                 while (vBox.getChildren().size() <= size / 2 && !homeItems.isEmpty()) {

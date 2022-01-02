@@ -80,7 +80,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
     @FXML
     private Button editBtn;
     @FXML
-    private ImageView home;
+    private ImageView logo;
 
     private Station newStation;
     private Card card;
@@ -101,7 +101,6 @@ public class ReturnBikeHandler extends BaseScreenHandler {
      */
     public ReturnBikeHandler(Stage stage, String screenPath, BaseController bController, Station station, Order order) throws IOException {
         super(stage, screenPath);
-        System.out.println("Return Bike Handler");
         setBController(bController);
         this.order = order;
         this.newStation = station;
@@ -110,7 +109,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
         this.order.getRentedBike().setStation(newStation);
         setBikeInfo();
         setCardInfo();
-        home.setOnMouseClicked(event -> {
+        logo.setOnMouseClicked(event -> {
             try {
                 backToHomeAfterRent(order);
             } catch (Exception e) {

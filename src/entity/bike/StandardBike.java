@@ -31,9 +31,11 @@ public class StandardBike extends Bike {
     public Bike getBikeById(int id) throws SQLException {
         try {
             String qId = "\"" + id + "\"";
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id where type=\"Standard bike\" and Bike.id=" + qId + ";";
+//            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id where type=\"Standard bike\" and Bike.id=" + qId + ";";
+            String sql = "SELECT * FROM Bike INNER JOIN Station on Bike.stationId = Station.id WHERE Bike.id=" + qId + " AND Bike.type='Standard bike';";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
+            
 
             if (res.next()) {
                 StandardBike bike = new StandardBike();
@@ -56,7 +58,8 @@ public class StandardBike extends Bike {
     public Bike getBikeByBarcode(String barcode) {
         try {
             barcode = "\"" + barcode + "\"";
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id  where type=\"Standard bike\" and barcode= " + barcode + ";";
+//            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id  where type=\"Standard bike\" and barcode= " + barcode + ";";
+            String sql = "SELECT * FROM Bike inner join  Station on Bike.stationID=Station.id  where type=\"Standard bike\" and barcode= " + barcode + ";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 
@@ -76,11 +79,12 @@ public class StandardBike extends Bike {
      * get a list of all bike of this type
      * @return List[Bike]
      */
-    public List getAllBike() {
-        ArrayList allBike = new ArrayList<>();
+    public List<Bike> getAllBike() {
+        ArrayList<Bike> allBike = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id where type=\"Standard bike\";";
-            Statement stm = EcoBikeRental.getConnection().createStatement();
+//            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id where type=\"Standard bike\";";
+        	String sql = "SELECT * FROM Bike inner join Station on Bike.stationID=Station.id where type=\"Standard bike\";";
+        	Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 
             while (res.next()) {

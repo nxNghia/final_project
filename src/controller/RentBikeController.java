@@ -5,14 +5,11 @@ import entity.bike.Bike;
 import entity.invoice.Invoice;
 import entity.order.Order;
 
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 /**
  * This controller class control the flow of the renting bike process
  * in our EcoBike Software.
- * @author Pham Nhat Linh
- * @version 1.0
  */
 public class RentBikeController extends BaseController {
 

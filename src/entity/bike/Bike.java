@@ -200,21 +200,20 @@ public class Bike extends BaseEntity {
     public Bike setValueBike(ResultSet res, Bike bike) throws SQLException {
         bike.setLicensePlate(res.getString("licensePlate"));
         bike.setId(res.getInt("id"));
-        bike.setNumRearSeat(res.getInt("numRearSeat"));
         bike.setLicensePlate(res.getString("licensePlate"));
-        bike.setNumPedal(res.getInt("numPedal"));
         bike.setValue(res.getInt("value"));
-        bike.setCoefficient(res.getInt("coefficientPrice"));
-        bike.setUrlImage(res.getString("urlImage"));
-        bike.setNumSaddle(res.getInt("numSaddle"));
+//        bike.setCoefficient(res.getInt("coefficientPrice"));
+        bike.setCoefficient(res.getInt("rentalPrice"));
+//        bike.setUrlImage(res.getString("urlImage"));
+        bike.setUrlImage(res.getString("imageUrl"));
         bike.setBarcode(res.getString("barcode"));
         bike.setRenting(res.getBoolean("isRenting"));
         bike.setType(res.getString("type"));
         Station station = new Station();
         station.setId(res.getInt("stationID"));
         station.setName(res.getString("name"));
-        station.setNumEmptyDockPoint(res.getInt("numEmptyDockPoint"));
-        station.setNumAvailableBike(res.getInt("numAvailableBike"));
+        station.setNumEmptyDockPoint(res.getInt("availableDock"));
+        station.setNumAvailableBike(res.getInt("availableBike"));
         bike.setStation(station);
         return bike;
     }
@@ -229,7 +228,7 @@ public class Bike extends BaseEntity {
     public Bike getBikeById(int id) throws SQLException {
         try {
             String qId = "\"" + id + "\"";
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id  where Bike.id=" + qId + ";";
+            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id  where Bike.id=" + qId + ";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 
@@ -254,7 +253,7 @@ public class Bike extends BaseEntity {
     public Bike getBikeByBarcode(String barcode) throws SQLException {
         try {
             barcode = "\"" + barcode + "\"";
-            String sql = "SELECT * FROM Bike  join  Station on Bike.stationID=Station.id natural join BikeDetail where barcode= " + barcode + ";";
+            String sql = "SELECT * FROM Bike  join  Station on Bike.stationID=Station.id where barcode= " + barcode + ";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 
@@ -274,8 +273,8 @@ public class Bike extends BaseEntity {
      * @return List[Bike]
      * @throws SQLException
      */
-    public List getAllBike() throws SQLException {
-        ArrayList allBike = new ArrayList<>();
+    public List<Bike> getAllBike() throws SQLException {
+        ArrayList<Bike> allBike = new ArrayList<>();
         try {
             String sql = "SELECT * FROM Bike join  Station on Bike.stationID=Station.id natural join BikeDetail;";
             Statement stm = EcoBikeRental.getConnection().createStatement();
@@ -375,8 +374,8 @@ public class Bike extends BaseEntity {
             numEmptyDockPoint--;
             numAvailableBike++;
         }
-        new Station().updateFieldById("Station", stationID, "numEmptyDockPoint", Integer.toString(numEmptyDockPoint));
-        new Station().updateFieldById("Station", stationID, "numAvailableBike", Integer.toString(numAvailableBike));
+        new Station().updateFieldById("Station", stationID, "availableDock", Integer.toString(numEmptyDockPoint));
+        new Station().updateFieldById("Station", stationID, "availableBike", Integer.toString(numAvailableBike));
         new Bike().updateFieldById("Bike", bikeID, "isRenting", Integer.toString(isRent));
     }
 

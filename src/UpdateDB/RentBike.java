@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 /**
  * This class is used when rent bike successfully
- * @author Duong Thi Hue
- * @version 1.0
  */
 public class RentBike implements UpdateDBTransaction {
     @Override

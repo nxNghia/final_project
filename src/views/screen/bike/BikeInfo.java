@@ -18,7 +18,7 @@ import views.screen.FXMLScreenHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 public class BikeInfo extends FXMLScreenHandler implements Initializable {
     @FXML
@@ -44,7 +44,7 @@ public class BikeInfo extends FXMLScreenHandler implements Initializable {
     @FXML
     private Label remainingTime;
     private Bike bike;
-    private static Logger LOGGER = Utils.getLogger(BikeInformationHandler.class.getName());
+//    private static Logger LOGGER = Utils.getLogger(BikeInformationHandler.class.getName());
     private boolean isViewBike;
 
     /**

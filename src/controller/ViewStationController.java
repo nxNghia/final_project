@@ -1,10 +1,9 @@
 package controller;
 
+import entity.bike.Bike;
+
 /**
  * This class controls the flow of events in station screen
- * @author Do Minh Thong
- * @version 1.0
- *
  */
 
 import entity.station.Station;
@@ -18,7 +17,7 @@ public class ViewStationController extends BaseController {
 	 * @return List[Bike]
 	 * @throws SQLException
 	 */
-    public List getAllBikeAvailable(int stationId) throws SQLException {
+    public List<Bike> getAllBikeAvailable(int stationId) throws SQLException {
         return new Station().getAllBikeAvailable(stationId);
     }
 }

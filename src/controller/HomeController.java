@@ -17,7 +17,7 @@ public class HomeController extends BaseController {
 	 * @return List[Station]
 	 * @throws SQLException
 	 */
-    public List getAllStations() throws SQLException {
+    public List<Station> getAllStations() throws SQLException {
         return new Station().getAllStations();
     }
 }

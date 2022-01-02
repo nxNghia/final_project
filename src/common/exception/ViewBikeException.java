@@ -1,9 +1,9 @@
 package common.exception;
+
 /**
  * This exception is thrown when there is error related to viewing bike
- * @author Tran Thi Hang
- * @version 1.0
  */
+@SuppressWarnings("serial")
 public class ViewBikeException extends EcobikeException {
 	 /**
 	  * Exception Construction

@@ -3,9 +3,6 @@ package common.exception;
 /**
  * The ProcessInvoiceException wraps all unchecked exceptions You can use this
  * exception to inform
- *
- * @author hangtt
- * @version 1.0
  */
 public class ProcessInvoiceException extends EcobikeException {
 

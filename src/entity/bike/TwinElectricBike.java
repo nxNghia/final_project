@@ -10,8 +10,6 @@ import java.util.List;
 
 /**
  * This class is the base class for Twin Electric Bike
- * @author Duong Thi Hue
- * @version 1.0
  */
 public class TwinElectricBike extends StandardElectricBike {
 	/**
@@ -31,7 +29,7 @@ public class TwinElectricBike extends StandardElectricBike {
     public Bike getBikeById(int id) throws SQLException {
         try {
             String qId = "\"" + id + "\"";
-            String sql = "SELECT * FROM Bike B natural join BikeDetail join  Station on B.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id    where type=\"Electric twin bike\" and  B.id=" + qId + ";";
+            String sql = "SELECT * FROM Bike B inner join BikeDetail join  Station on B.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id    where type=\"Electric twin bike\" and  B.id=" + qId + ";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
             if (res.next()) {
@@ -60,7 +58,7 @@ public class TwinElectricBike extends StandardElectricBike {
     public Bike getBikeByBarcode(String barcode) {
         try {
             barcode = "\"" + barcode + "\"";
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id  where type=\"Electric twin bike\" and Bike.barcode= " + barcode;
+            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id  where type=\"Electric twin bike\" and Bike.barcode= " + barcode;
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 
@@ -87,9 +85,9 @@ public class TwinElectricBike extends StandardElectricBike {
      * @return List[Bike]
      */
     public List getAllBike() {
-        ArrayList allBike = new ArrayList<>();
+        ArrayList<TwinElectricBike> allBike = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM Bike natural join BikeDetail join  Station on Bike.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id  where type=\"Electric twin bike\";";
+            String sql = "SELECT * FROM Bike inner join BikeDetail join  Station on Bike.stationID=Station.id  join ElectricBike SEB on B.id=SEB.id  where type=\"Electric twin bike\";";
             Statement stm = EcoBikeRental.getConnection().createStatement();
             ResultSet res = stm.executeQuery(sql);
 

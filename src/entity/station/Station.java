@@ -1,8 +1,6 @@
 package entity.station;
 /**
  * This class is the station entity 
- * @author Do Minh Thong
- * @version 1.0
  */
 
 import entity.BaseEntity;
@@ -38,7 +36,6 @@ public class Station extends BaseEntity {
      * @param id
      * @param name
      * @param numAvailableBike
-     * @param numEmptyDockPoint
      * @param area
      * @param address
      */
@@ -122,18 +119,19 @@ public class Station extends BaseEntity {
      * @return List[Bike]
      * @throws SQLException
      */
-    public List getAllBikeAvailable(int stationId) throws SQLException {
+    public List<Bike> getAllBikeAvailable(int stationId) throws SQLException {
         Statement stm = EcoBikeRental.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Bike where isRenting= 0 and stationId = " + stationId);
 
-        ArrayList medium = new ArrayList<>();
+        ArrayList<Bike> medium = new ArrayList<>();
         while (res.next()) {
             Bike bike = new Bike();
             bike.setId(res.getInt("id"));
             bike.setType(res.getString("type"));
             bike.setLicensePlate(res.getString("licensePlate"));
             bike.setBarcode(res.getString("barCode"));
-            bike.setUrlImage(res.getString("urlImage"));
+            bike.setUrlImage(res.getString("imageurl"));
+//            bike.setUrlImage(res.getString("urlImage"));
             bike.setRenting(res.getBoolean("isRenting"));
             medium.add(bike);
         }
@@ -145,18 +143,17 @@ public class Station extends BaseEntity {
      * @return List[Station]
      * @throws SQLException
      */
-    public List getAllStations() throws SQLException {
+    public List<Station> getAllStations() throws SQLException {
         Statement stm = EcoBikeRental.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Station");
-        ArrayList medium = new ArrayList<>();
+        ArrayList<Station> medium = new ArrayList<>();
         while (res.next()) {
             Station station = new Station()
                     .setId(res.getInt("id"))
                     .setName(res.getString("name"))
-                    .setNumEmptyDockPoint(res.getInt("numEmptyDockPoint"))
-                    .setNumAvailableBike(res.getInt("numAvailableBike"))
-                    .setArea(res.getDouble("area"))
-                    .setAddress(res.getString("address"));
+                    .setAddress(res.getString("address"))
+                    .setNumAvailableBike(res.getInt("availableBike"))
+                    .setNumEmptyDockPoint(res.getInt("availableDock"));
             medium.add(station);
         }
         return medium;
@@ -167,8 +164,8 @@ public class Station extends BaseEntity {
      * @return List[Station]
      * @throws SQLException
      */
-    public List getStationHasEmptyDock() throws SQLException {
-        List stations = getAllStations();
+    public List<Station> getStationHasEmptyDock() throws SQLException {
+        List<Station> stations = getAllStations();
 
         for (Object s : stations) {
             if (((Station) s).getNumEmptyDockPoint() <= 0) {
@@ -192,9 +189,9 @@ public class Station extends BaseEntity {
             result = new Station()
                     .setId(res.getInt("id"))
                     .setName(res.getString("name"))
-                    .setNumEmptyDockPoint(res.getInt("numEmptyDockPoint"))
-                    .setNumAvailableBike(res.getInt("numAvailableBike"))
                     .setArea(res.getDouble("area"))
+                    .setNumAvailableBike(res.getInt("availableBike"))
+                    .setNumEmptyDockPoint(res.getInt("availableDock"))
                     .setAddress(res.getString("address"));
         }
         stm.close();
@@ -215,8 +212,8 @@ public class Station extends BaseEntity {
             result = new Station()
                     .setId(res.getInt("id"))
                     .setName(res.getString("name"))
-                    .setNumEmptyDockPoint(res.getInt("numEmptyDockPoint"))
-                    .setNumAvailableBike(res.getInt("numAvailableBike"))
+                    .setNumEmptyDockPoint(res.getInt("availableDock"))
+                    .setNumAvailableBike(res.getInt("availableBike"))
                     .setArea(res.getDouble("area"))
                     .setAddress(res.getString("address"));
         }
@@ -229,10 +226,10 @@ public class Station extends BaseEntity {
      * @return List[Bike]
      * @throws SQLException
      */
-    public List getAllBike(int stationId) throws SQLException {
+    public List<Bike> getAllBike(int stationId) throws SQLException {
         Statement stm = EcoBikeRental.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Bike where stationId = " + stationId);
-        ArrayList medium = new ArrayList<>();
+        ArrayList<Bike> medium = new ArrayList<>();
         while (res.next()) {
             Bike bike = new Bike();
             bike.setId(res.getInt("id"));

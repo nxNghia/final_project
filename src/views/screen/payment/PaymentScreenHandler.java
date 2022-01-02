@@ -4,7 +4,7 @@ import java.io.IOException;
 import controller.PaymentController;
 import entity.invoice.Invoice;
 import entity.transaction.Card;
-import entity.transaction.TransactionInfo;
+//import entity.transaction.TransactionInfo;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -16,8 +16,6 @@ import views.screen.home.HomeScreenHandler;
 
 /**
  * This class is to display the payment screen
- * @author Pham Nhat Linh
- * @version 1.0
  */
 public class PaymentScreenHandler extends BaseScreenHandler {
 
@@ -47,7 +45,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
     private Invoice invoice;
 
-    private Card card;
+//    private Card card;
 
     /**
      * This constructor use when pay for renting bike
@@ -59,7 +57,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
     public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 
         super(stage, screenPath);
-        this.card = null;
+//        this.card = null;
         this.invoice = invoice;
 
         home.setOnMouseClicked(event -> {
@@ -82,7 +80,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
     public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice, Card card) throws IOException {
         super(stage, screenPath);
         this.invoice = invoice;
-        this.card = card;
+//        this.card = card;
         setCardInfo(card);
 
         home.setOnMouseClicked(event -> {

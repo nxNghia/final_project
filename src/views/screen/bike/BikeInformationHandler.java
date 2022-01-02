@@ -22,14 +22,14 @@ import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.home.HomeScreenHandler;
 import views.screen.rentbike.RentBikeScreenHandler;
-import views.screen.station.StationScreenHandler;
+//import views.screen.station.StationScreenHandler;
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 public class BikeInformationHandler extends BaseScreenHandler implements Initializable {
 
@@ -44,7 +44,7 @@ public class BikeInformationHandler extends BaseScreenHandler implements Initial
     @FXML
     private Button canRent;
     private Order order;
-    private static Logger LOGGER = Utils.getLogger(BikeInformationHandler.class.getName());
+//    private static Logger LOGGER = Utils.getLogger(BikeInformationHandler.class.getName());
     private HomeScreenHandler homeScreenHandler;
 
     /**
@@ -122,7 +122,8 @@ public class BikeInformationHandler extends BaseScreenHandler implements Initial
      */
     public void setBikeInfo(int id, String type) throws IOException, SQLException {
         this.bike = getBController().setBike(id, type);
-        liscensePlateTitle.setText(bike.getLicensePlate());
+//        liscensePlateTitle.setText(bike.getLicensePlate());
+        liscensePlateTitle.setText(bike.getBarcode());
         // set image from url
         setImage(urlImage, bike.getUrlImage());
         BikeInfo bikeInfoItems = new BikeInfo(Configs.BIKE_INFO, this.bike, true);
@@ -167,7 +168,7 @@ public class BikeInformationHandler extends BaseScreenHandler implements Initial
      */
     @FXML
     private void cancelViewBike() throws IOException, SQLException {
-        LOGGER.info("Cancel button clicked");
+//        LOGGER.info("Cancel button clicked");
         if (this.getPreviousScreen() instanceof HomeScreenHandler) {
             if (this.order == null) backToHome();
             else backToHomeAfterRent(this.order);
@@ -182,7 +183,7 @@ public class BikeInformationHandler extends BaseScreenHandler implements Initial
      */
     @FXML
     private void rentBike() throws IOException {
-        LOGGER.info("Rent bike button clicked");
+//        LOGGER.info("Rent bike button clicked");
         RentBikeScreenHandler rentBike = new RentBikeScreenHandler(this.stage, Configs.RENT_BIKE_PATH, bike);
         rentBike.setBController(new RentBikeController());
         rentBike.setBikeInfo();

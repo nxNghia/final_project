@@ -27,7 +27,7 @@ import views.screen.payment.PaymentScreenHandler;
  */
 public class RentBikeScreenHandler extends BaseScreenHandler {
     @FXML
-    private ImageView home;
+    private ImageView logo;
 
     @FXML
     private Pane bikeInfo;
@@ -89,7 +89,6 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
         super(stage, screenPath);
         // TODO Auto-generated constructor stub
         this.rented = rented;
-        System.out.println("Rent Bike Screen Handler");
         this.setBController(new RentBikeController());
     }
 

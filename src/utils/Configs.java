@@ -10,9 +10,9 @@ public class Configs {
     public static final String appCode = "AkXXrVUanBU=";
 
     // database Configs
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/capstone";
-    public static final String DB_USERNAME = "root";
-    public static final String DB_PASSWORD = "langle2k";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/itss";
+    public static final String DB_USERNAME = "nah";
+    public static final String DB_PASSWORD = "xnauiagnenhugny";
 
     // static resource
     public static final String RESULT_SCREEN_PATH = "/views/result.fxml";
@@ -20,7 +20,6 @@ public class Configs {
     public static final String SPLASH_SCREEN_PATH = "/views/splash.fxml";
     public static final String HOME_PATH = "/views/home.fxml";
     public static final String STATION_HOME_PATH = "/views/station_home.fxml";
-    public static final String POPUP_HOME_PATH = "/views/popup_home.fxml";
     public static final String STATION_PATH = "/views/station.fxml";
     public static final String BIKE_STATION_PATH = "/views/bike_station.fxml";
     public static final String TRANSACTION_ERROR_SCREEN_PATH = "/views/transaction_error.fxml";
@@ -41,7 +40,8 @@ public class Configs {
     public static final String DATE_EXPIRED = "1125";
     
 
-    public static final Map<String, String> errorCodes = new HashMap<String, String>() {{
+    @SuppressWarnings("serial")
+	public static final Map<String, String> errorCodes = new HashMap<String, String>() {{
         put("00", "Transaction successfully");
         put("01", "Invalid card");
         put("02", "Insufficient account balance");

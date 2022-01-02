@@ -3,7 +3,7 @@ package views.screen.bike;
 import controller.ReturnBikeController;
 import controller.ViewBikeController;
 import entity.bike.Bike;
-import entity.bike.StandardElectricBike;
+//import entity.bike.StandardElectricBike;
 import entity.order.Order;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -11,7 +11,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -31,8 +31,6 @@ import java.util.ResourceBundle;
 
 /**
  * This class is to display the info of the renting bike
- * @author Duong Thi Hue
- * @version 1.0
  */
 public class RentingBikeHandler extends BaseScreenHandler implements Initializable {
     @FXML
@@ -72,7 +70,7 @@ public class RentingBikeHandler extends BaseScreenHandler implements Initializab
     @FXML
     private ImageView pause;
     @FXML
-    private ImageView home;
+    private ImageView logo;
 
 
     public boolean isFlag() {
@@ -101,7 +99,7 @@ public class RentingBikeHandler extends BaseScreenHandler implements Initializab
 
             } else {
                 animation.play();
-                String imageSource = "assets/images/pauseIcon.png";
+//                String imageSource = "assets/images/pauseIcon.png";
                 setImage(pause, "assets/images/pauseIcon.png");
                 setFlag(false);
             }
@@ -131,7 +129,7 @@ public class RentingBikeHandler extends BaseScreenHandler implements Initializab
      * @throws IOException
      */
     private void returnBike() throws IOException {
-        LOGGER.info("return bike button clicked");
+//        LOGGER.info("return bike button clicked");
 
         SelectDockToReturnBikeScreenHandler selectDock = new SelectDockToReturnBikeScreenHandler(this.stage, Configs.SELECT_DOCK_TO_RETURN_BIKE_PATH, order);
 
@@ -150,7 +148,7 @@ public class RentingBikeHandler extends BaseScreenHandler implements Initializab
         super(stage, screenPath);
         this.bike = order.getRentedBike();
         this.order = order;
-        home.setOnMouseClicked(event -> {
+        logo.setOnMouseClicked(event -> {
             try {
                 backToHomeAfterRent(order);
             } catch (Exception e) {

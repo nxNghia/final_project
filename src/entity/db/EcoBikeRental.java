@@ -16,7 +16,6 @@ public class EcoBikeRental {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 			Properties info = new Properties();
@@ -24,7 +23,6 @@ public class EcoBikeRental {
 			info.put("password", Configs.DB_PASSWORD);
 			res = DriverManager.getConnection(Configs.DB_URL, info);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			res = null;
 		}

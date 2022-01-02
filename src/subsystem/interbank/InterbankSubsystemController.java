@@ -16,12 +16,6 @@ import utils.Configs;
 import utils.MyMap;
 import utils.Utils;
 
-/***
- * this class is used to control the interbank subsystem
- * 
- * @author Tran Thi Hang
- *
- */
 public class InterbankSubsystemController {
 
 	private static final String SECRET_KEY = "BWV6fhwdozg=";

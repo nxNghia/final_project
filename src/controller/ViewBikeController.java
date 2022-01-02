@@ -9,8 +9,6 @@ import java.util.HashMap;
 
 /**
  * This class controls the flow of events in view bike screen
- * @author Duong Thi Hue
- * @version 1.0
  *
  */
 public class ViewBikeController extends BaseController {
@@ -20,7 +18,7 @@ public class ViewBikeController extends BaseController {
      * @param amount amount want to count
      * @return a hashmap include: hour, minute, second
      */
-    public HashMap counting(int amount) {
+    public HashMap<String, Integer> counting(int amount) {
         int hour = amount / 3600;
         int minute = (amount - hour * 3600) / 60;
         int second = amount - hour * 3600 - minute * 60;
@@ -61,18 +59,19 @@ public class ViewBikeController extends BaseController {
      * @throws ViewBikeException
      */
     public Bike setBike(int id, String type) throws ViewBikeException {
-    	System.out.println(type);
         try {
-            if (type.equals("Standard electric bike")) {
-            	System.out.print(type);
+//            if (type.equals("Standard electric bike")) {
+        	if (type.equals("Standard e bike")) {
                 return new StandardElectricBike().getBikeById(id);
             } else if (type.equals("Standard bike")) {
+            	
                 return new StandardBike().getBikeById(id);
             } else if (type.equals("Twin bike")) {
                 return new TwinBike().getBikeById(id);
-            } else if (type.equals("Electric twin bike")) {
-                return new TwinElectricBike().getBikeById(id);
-            }
+            } 
+//            else if (type.equals("Electric twin bike")) {
+//                return new TwinElectricBike().getBikeById(id);
+//            }
         } catch (ViewBikeException | SQLException e) {
             throw new ViewBikeException("Not found Bike");
         }

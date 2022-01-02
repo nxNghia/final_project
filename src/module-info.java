@@ -15,6 +15,5 @@ module ISD.VN {
 	opens views.screen.rentbike;
 	opens views.screen.payment;
 	opens views.screen.returnbike;
-	opens views.screen.popup;
 	opens views.screen.barcode;
 }

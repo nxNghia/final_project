@@ -6,8 +6,8 @@ import java.util.Hashtable;
 import java.util.logging.Logger;
 
 import controller.BaseController;
-import controller.ReturnBikeController;
-import entity.invoice.Invoice;
+//import controller.ReturnBikeController;
+//import entity.invoice.Invoice;
 import entity.order.Order;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,7 +15,7 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.bike.BikeInformationHandler;
 import views.screen.home.HomeScreenHandler;
-import views.screen.payment.TransactionErrorScreenHandler;
+//import views.screen.payment.TransactionErrorScreenHandler;
 
 /**
  * This class is the base screen view handler
@@ -40,7 +40,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
      * @throws SQLException
      */
     public void backToHome() throws IOException, SQLException {
-        LOGGER.info("Home button clicked");
+//        LOGGER.info("Home button clicked");
         HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH);
         homeHandler.requestToReturnHome(this);
     }
@@ -52,7 +52,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
      * @throws SQLException
      */
     public void backToHomeAfterRent(Order order) throws IOException, SQLException {
-        LOGGER.info("Home button clicked" + order);
+//        LOGGER.info("Home button clicked" + order);
         HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH, order);
         homeHandler.requestToReturnHome(this);
     }

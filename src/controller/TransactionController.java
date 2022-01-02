@@ -18,13 +18,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-/**
- * This class controls the flow of events in any screen with transaction
- * @author Duong Thi Hue
- * @version 1.0
- *
- */
-
 public class TransactionController extends BaseController {
     /**
      * This method validates Cardholder's name
@@ -184,7 +177,6 @@ public class TransactionController extends BaseController {
         TransactionErrorScreenHandler tes = new TransactionErrorScreenHandler(stage, Configs.TRANSACTION_ERROR_SCREEN_PATH, errorMessage);
         tes.setPreviousScreen(prev);
 
-        System.out.println("Transaction Controller");
         tes.setBController(new ReturnBikeController());
         tes.setHomeScreenHandler(homeScreenHandler);
         tes.setScreenTitle("Transaction Error Screen");

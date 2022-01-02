@@ -6,6 +6,7 @@ package common.exception;
  * @author hangtt
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class EcobikeException extends RuntimeException {
 
 	/**

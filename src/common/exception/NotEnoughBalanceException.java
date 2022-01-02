@@ -2,9 +2,8 @@ package common.exception;
 /**
  * This exception is thrown when the credit card doesnt 
  * have enough money to process the transaction
- * @author hangtt
- * @version 1.0
  */
+@SuppressWarnings("serial")
 public class NotEnoughBalanceException extends PaymentException{
 
 	/**

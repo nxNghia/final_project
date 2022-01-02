@@ -2,8 +2,6 @@ package UpdateDB;
 
 /**
  * This class is used when transaction successful
- * @author Duong Thi Hue
- * @version 1.0
  */
 import entity.invoice.Invoice;
 import entity.transaction.TransactionInfo;

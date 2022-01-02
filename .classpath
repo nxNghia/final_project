@@ -7,12 +7,12 @@
 			<attribute name="add-opens" value="java.base/java.net=ISD.VN:java.base/sun.net.www.protocol.https=ISD.VN"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/final_project/lib/sqlite-jdbc-3.7.2.jar/sqlite-jdbc-3.7.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Desktop/lib/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/Programs/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

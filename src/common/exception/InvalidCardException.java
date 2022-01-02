@@ -1,12 +1,10 @@
 package common.exception;
 
-;
 /**
  * This exception is thrown when the card info is invalid
- * @author hangtt
- * @version 1.0
  */
 
+@SuppressWarnings("serial")
 public class InvalidCardException extends PaymentException {
 	/**
 	  * Exception Construction

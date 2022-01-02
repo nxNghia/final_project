@@ -11,8 +11,6 @@ import entity.db.EcoBikeRental;
 
 /**
  * This class is the order entity
- * @author Pham Nhat Linh
- * @version 1.0
  */
 
 public class Order extends BaseEntity {
@@ -109,8 +107,8 @@ public class Order extends BaseEntity {
         String deposit = Integer.toString(this.deposit);
         String bikeID = Integer.toString(this.getRentedBike().getId());
         String start = this.start.toString();
-        stm.execute("INSERT INTO EcoOrder(deposit, bikeID, startAt) VALUES (" + deposit + "," + bikeID + "," + "\'" + start + "\'" + ");");
-        ResultSet res = stm.executeQuery("SELECT id from EcoOrder where endAt is NULL");
+        stm.execute("INSERT INTO itss.Order(deposit, bikeID, startTime) VALUES (" + deposit + "," + bikeID + "," + "\'" + start + "\'" + ");");
+        ResultSet res = stm.executeQuery("SELECT id from itss.Order where endTime is NULL");
 
         int id = -1;
         //res.next();
@@ -127,8 +125,8 @@ public class Order extends BaseEntity {
     public void updateOrderDB() throws SQLException {
         Statement stm = EcoBikeRental.getConnection().createStatement();
         String end = this.end.toString();
-        String sql = " update " + "EcoOrder" + " set" + " "
-                + "endAt" + "=" + "\'" + end + "\' "
+        String sql = " update " + "itss.Order" + " set" + " "
+                + "endTime" + "=" + "\'" + end + "\' "
                 + ", amount =" + "\'" + totalUpToNow + "\' "
                 + "where id =" + this.getId() + ";";
         stm.executeUpdate(sql);

@@ -1,9 +1,9 @@
-package common.exception;;
+package common.exception;
+
 /**
  * This exception is thrown when the transaction contains invalid version of information
- * @author hangtt
- * @version 1.0
  */
+@SuppressWarnings("serial")
 public class InvalidVersionException extends PaymentException{
 	/**
 	  * Exception Construction

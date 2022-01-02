@@ -39,7 +39,7 @@ public class SelectDockToReturnBikeScreenHandler extends BaseScreenHandler imple
     private HBox hboxDock;
 
     @FXML
-    private ImageView home;
+    private ImageView logo;
 
     private List docks;
 
@@ -59,7 +59,7 @@ public class SelectDockToReturnBikeScreenHandler extends BaseScreenHandler imple
         this.order = order;
         addDockSelection();
 
-        home.setOnMouseClicked(event -> {
+        logo.setOnMouseClicked(event -> {
             try {
                 backToHomeAfterRent(order);
             } catch (Exception e) {
@@ -84,7 +84,7 @@ public class SelectDockToReturnBikeScreenHandler extends BaseScreenHandler imple
         try {
             setBController(new SelectDockToReturnBikeController());
 
-            List stations = getBController().getStationHasEmptyDock();
+            List stations = new Station().getStationHasEmptyDock();
             this.docks = new ArrayList<>();
             for (Object object : stations) {
                 Station s = (Station) object;
@@ -134,7 +134,6 @@ public class SelectDockToReturnBikeScreenHandler extends BaseScreenHandler imple
     @FXML
     public void backToViewRentingBike() throws IOException, SQLException {
         RentingBikeHandler viewRentingBikeHandler = new RentingBikeHandler(stage, Configs.RENT_BIKE_INFO_PATH, order);
-        System.out.println("Select Dock To Return Bike Screen Handler");
         viewRentingBikeHandler.setBController(new ViewBikeController());
         viewRentingBikeHandler.requestToViewRentingBike(new HomeScreenHandler(stage, Configs.HOME_SCREEN_PATH));
     }

@@ -102,10 +102,10 @@ public class TransactionInfo {
         String createdDate = "\'" + this.createdAt + "\'";
         String content = "\'" + this.transactionContent + "\'";
         String amount = Integer.toString(this.amount);
-        stm.execute("INSERT INTO TransactionInfo(cardID, invoiceID, createdDate, content, amount) "
+        stm.execute("INSERT INTO Transaction(cardID, invoiceID, createdDate, content, totalamount) "
                 + "VALUES (" + cardID + "," + invoiceID + "," + createdDate + "," + content + "," + amount + ");");
         int id = -1;
-        ResultSet res = stm.executeQuery("SELECT id from TransactionInfo");
+        ResultSet res = stm.executeQuery("SELECT id from Transaction");
         while (res.next()) {
             id = res.getInt("id");
         }

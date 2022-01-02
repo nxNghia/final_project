@@ -3,8 +3,6 @@ package UpdateDB;
 
 /**
  * This class is used when return bike successfully
- * @author Duong Thi Hue
- * @version 1.0
  */
 import controller.ResultScreenController;
 import entity.bike.Bike;

@@ -11,8 +11,6 @@ import views.screen.BaseScreenHandler;
 
 /**
  * This class is to display the transaction error screen
- * @author Tran Thi Hang
- * @version 1.0
  */
 
 public class TransactionErrorScreenHandler extends BaseScreenHandler {

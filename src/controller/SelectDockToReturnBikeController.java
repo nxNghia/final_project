@@ -5,9 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * This class controls the flow of events in select dock to return bike screen
- * @author Do Minh Thong
- * @version 1.0
+ * This class controls the flow of events in select dock to return bike screens
  *
  */
 public class SelectDockToReturnBikeController extends BaseController{
@@ -16,7 +14,7 @@ public class SelectDockToReturnBikeController extends BaseController{
 	 * @return List[Station]
 	 * @throws SQLException
 	 */
-    public List getStationHasEmptyDock() throws SQLException {
+    public List<Station> getStationHasEmptyDock() throws SQLException {
         return new Station().getStationHasEmptyDock();
     }
 }

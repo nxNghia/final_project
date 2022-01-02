@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.returnbike.ReturnBikeHandler;
-import views.screen.returnbike.SelectDockToReturnBikeScreenHandler;
+//import views.screen.returnbike.SelectDockToReturnBikeScreenHandler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,13 +36,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
     private Label name1;
 
     @FXML
-    private Label name2;
-
-    @FXML
     private Label address;
-
-    @FXML
-    private Label area;
 
     @FXML
     private Label availableBikes;
@@ -51,7 +45,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
     private Label emptyDocks;
 
     @FXML
-    private ImageView home;
+    private ImageView logo;
 
     @FXML
     private VBox vbox1;
@@ -87,7 +81,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
         this.station = station;
         returnBtn.setVisible(false);
 
-        this.home.setOnMouseClicked(e -> {
+        this.logo.setOnMouseClicked(e -> {
             try {
                 backToHome();
             } catch (IOException | SQLException ioException) {
@@ -120,7 +114,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
             }
         });
 
-        this.home.setOnMouseClicked(e -> {
+        this.logo.setOnMouseClicked(e -> {
             try {
                 backToHomeAfterRent(order);
             } catch (IOException | SQLException ioException) {
@@ -158,7 +152,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
                 BikeHandler bikeHandler;
                 if (order == null) {
                     bikeHandler = new BikeHandler(stage, Configs.BIKE_STATION_PATH, bike, this);
-                    this.home.setOnMouseClicked(e -> {
+                    this.logo.setOnMouseClicked(e -> {
                         try {
                             backToHome();
                         } catch (IOException | SQLException ioException) {
@@ -166,7 +160,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
                         }
                     });
                 } else {
-                    this.home.setOnMouseClicked(e -> {
+                    this.logo.setOnMouseClicked(e -> {
                         try {
                             backToHomeAfterRent(order);
                         } catch (IOException | SQLException ioException) {
@@ -206,9 +200,7 @@ public class StationScreenHandler extends BaseScreenHandler implements Initializ
     private void setStationInfo() throws SQLException {
         try {
             name1.setText(station.getName());
-            name2.setText(station.getName());
             address.setText(station.getAddress());
-            area.setText(station.getArea() + " m2");
             availableBikes.setText(Integer.toString(station.getNumAvailableBike()));
             emptyDocks.setText(Integer.toString(station.getNumEmptyDockPoint()));
         } catch (NullPointerException e) {

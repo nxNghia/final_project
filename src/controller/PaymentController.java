@@ -23,9 +23,6 @@ import views.screen.home.HomeScreenHandler;
 
 /**
  * This class controls the flow of the payment process in our EcoBikeRental project
- *
- * @author Tran Thi Hang, Duong Thi Hue,Pham Nhat Linh
- * @version 1.0
  */
 
 public class PaymentController extends TransactionController {
@@ -39,8 +36,8 @@ public class PaymentController extends TransactionController {
      * Represent the Interbank subsystem
      */
     private InterbankInterface interbank;
-    private double amount;
-    private String content;
+//    private double amount;
+//    private String content;
 
     /**
      * Pay order, and then return the result with a message.
@@ -62,7 +59,7 @@ public class PaymentController extends TransactionController {
                     expirationDate);
 
             this.interbank = new InterbankSubsystem();
-            TransactionInfo transaction = interbank.payOrder(card, amount, contents);
+            interbank.payOrder(card, amount, contents);
 
             result.put("RESULT", "PAYMENT SUCCESSFUL!");
             result.put("MESSAGE", "You have succesffully paid the order!");
@@ -175,8 +172,9 @@ public class PaymentController extends TransactionController {
      * @throws IOException
      * @throws SQLException
      */
-    public void proceedTransactionResult(TransactionInfo transactionResult, Invoice invoice, Card card, Stage stage, HomeScreenHandler homeScreenHandler, BaseScreenHandler prev) throws IOException, SQLException {
-        if (!transactionResult.getErrorCode().equals("00")) {
+    public void proceedTransactionResult(TransactionInfo transactionResult, Invoice invoice,
+    		Card card, Stage stage, HomeScreenHandler homeScreenHandler, BaseScreenHandler prev) throws IOException, SQLException {
+    	if (!transactionResult.getErrorCode().equals("00")) {
             displayTransactionError(transactionResult.getErrorCode(), stage, homeScreenHandler, prev);
         } else {
             if (invoice.getContents().contains("deposit")) {
@@ -200,9 +198,10 @@ public class PaymentController extends TransactionController {
      * @param prev
      * @throws Exception
      */
-    public void processPayRequest(String cardNumber, String holderName, String securityCode, String expirationDate, Invoice invoice, Stage stage, HomeScreenHandler homeScreenHandler, BaseScreenHandler prev) throws Exception {
-    	System.out.println(cardNumber+">"+holderName+">"+securityCode);
+    public void processPayRequest(String cardNumber, String holderName, String securityCode, String expirationDate,
+    		Invoice invoice, Stage stage, HomeScreenHandler homeScreenHandler, BaseScreenHandler prev) throws Exception {
         validateCard(cardNumber, holderName, securityCode, expirationDate);
+        
         Card card = createCard(cardNumber, holderName, securityCode, expirationDate);
         TransactionInfo transactionResult = submitToPay(invoice, card);
         proceedTransactionResult(transactionResult, invoice, card, stage, homeScreenHandler, prev);

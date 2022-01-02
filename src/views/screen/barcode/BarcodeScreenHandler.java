@@ -2,8 +2,6 @@ package views.screen.barcode;
 
 /**
  * This class is the base screen view handler
- * @author Pham Nhat Linh
- * @version 1.0
  */
 
 import java.io.IOException;
@@ -11,7 +9,7 @@ import java.sql.SQLException;
 
 import controller.RentBikeController;
 import entity.bike.Bike;
-import javafx.event.ActionEvent;
+//import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
